@@ -6,6 +6,7 @@ namespace SalaryCalculator.Classes.Calculations
     public class PayPacket : ICalculation
     {
         private readonly PayFrequencyEnum _payFrequency;
+        private string _payFrequencySuffix;
 
         public PayPacket(PayFrequencyEnum payFrequency)
         {
@@ -16,19 +17,7 @@ namespace SalaryCalculator.Classes.Calculations
         {
             get
             {
-                switch (_payFrequency)
-                {
-                    case PayFrequencyEnum.W:
-                        return "per week";
-                    case PayFrequencyEnum.F:
-                        return "per fortnight";
-                    case PayFrequencyEnum.M:
-                        return "per month";
-                    default:
-                        break;
-                }
-
-                return string.Empty;
+                return _payFrequencySuffix;
             }
         }
 
@@ -39,14 +28,18 @@ namespace SalaryCalculator.Classes.Calculations
             {
                 case PayFrequencyEnum.W:
                     amount = netSalary / (decimal)52;
+                    _payFrequencySuffix = "per week";
                     break;
                 case PayFrequencyEnum.F:
                     amount = netSalary / (decimal)26;
+                    _payFrequencySuffix = "per fornight";
                     break;
                 case PayFrequencyEnum.M:
                     amount = netSalary / (decimal)12;
+                    _payFrequencySuffix = "per month";
                     break;
                 default:
+                    _payFrequencySuffix = string.Empty;
                     break;
             }
 
