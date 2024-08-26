@@ -13,15 +13,16 @@ User is asked to enter a pay frequency (weekly, fortnightly or monthly)
     - Income tax 
 * Net income (annual) 
 * Pay packet amount
-##### Developer comments
+#### Developer comments
 * The app has been developed following clean code practices, OOD and OOP in .NET.
 * Use of Abstract classes and Interfaces has been showcased to use Encapsulation, Inheritance, Abstraction concepts.
 * The solution is architectured in a way that code is highly readable and maintainable.
 * Many SOLID principles have been applied.
 * Variables (superannuation rate and deductions' tax bands) that can change have been implemented outside of classes, so that they can be adjusted as needed.
 * The app can be extended to introduce any new tax/ levy types in income without the need to change any existing classes.
-* A unit test project has been created to test the given results
-  
+* A unit test project has been created to test the given results.
+
+#### A Sample Output
 <code>
   
 Enter your salary package amount: 65000 
