@@ -80,30 +80,30 @@ namespace SalaryCalculator
 
                 // Set variables that can change depending on year
                 // Set super rate
-                calculator?.SetSuperannuationPercentage(superannuationPercentage);
+                calculator.SetSuperannuationPercentage(superannuationPercentage);
                 // Set any deduction types
-                calculator?.SetDeductions(deductions);
+                calculator.SetDeductions(deductions);
 
-                var details = calculator?.Calculate();
+                var details = calculator.Calculate();
 
                 Console.WriteLine("Gross package: {0:C2}", grossSalary);
-                Console.WriteLine("Superannuation: {0:C2}", details?.Superannuation);
+                Console.WriteLine("Superannuation: {0:C2}", details.Superannuation);
                 Console.WriteLine("");
 
-                Console.WriteLine("Taxable income: {0:C2}", details?.TaxableIncome);
+                Console.WriteLine("Taxable income: {0:C2}", details.TaxableIncome);
                 Console.WriteLine("");
 
                 // Deductions are in a list
-                if (details?.Deductions.Count > 0) Console.WriteLine("Deductions:");
-                foreach (var deduct in details?.Deductions)
+                if (details.Deductions.Count > 0) Console.WriteLine("Deductions:");
+                foreach (var deduct in details.Deductions)
                 {
                     Console.Write(deduct.DeductionName + ": ");
                     Console.WriteLine("{0:C2}", deduct.DeductionAmount);
                 }
                 Console.WriteLine("");
 
-                Console.WriteLine("Net income: {0:C2}", details?.NetIncome);
-                Console.WriteLine("Pay packet: {0:C2} {1}", details?.PayPacket, details?.PayPacketFrequencyString);
+                Console.WriteLine("Net income: {0:C2}", details.NetIncome);
+                Console.WriteLine("Pay packet: {0:C2} {1}", details.PayPacket, details.PayPacketFrequencyString);
                 Console.WriteLine("");
             }
             catch (Exception ex)
